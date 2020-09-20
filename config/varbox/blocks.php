@@ -64,11 +64,11 @@ return [
                 'data[items][*][image]' => [
                     'mii_portrait' => [
                         'width' => '100',
-                        'height' => '400',
+                        'height' => '300',
                         'ratio' => true,
                     ],
                     'mii_landscape' => [
-                        'width' => '400',
+                        'width' => '300',
                         'height' => '100',
                         'ratio' => true,
                     ],

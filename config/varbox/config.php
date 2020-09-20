@@ -19,7 +19,15 @@ return [
     |
     */
     'keys' => [
-
+        'app.name',
+        'app.timezone',
+        'app.locale',
+        'mail.from.address',
+        'mail.from.name',
+        'services.postmark.key',
+        'services.google.key',
+        'services.facebook.key',
+        'services.github.key',
     ],
 
 ];
