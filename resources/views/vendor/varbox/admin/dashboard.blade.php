@@ -1,5 +1,18 @@
 @extends('varbox::layouts.default')
 
+@section('top')
+    <div class="alert alert-info col-lg-12 mb-5">
+        <div class="d-inline-block">
+            <h4>DEMO DATA IS RE-SEEDED EVERY HOUR</h4>
+            <p class="mb-0">
+                Every hour, all custom entries are deleted, all files, everything.
+                This cleanup is necessary because developers like to joke with their test entries, and mess with stuff.
+                But you know that :-) Go ahead - make a developer smile
+            </p>
+        </div>
+    </div>
+@endsection
+
 @section('content')
     <div class="row row-cards">
         <div class="col-md-12 col-lg-6">
