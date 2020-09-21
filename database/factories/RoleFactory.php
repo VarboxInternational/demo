@@ -23,7 +23,7 @@ class RoleFactory extends Factory
     {
         return [
             'name' => ucwords($this->faker->word),
-            'guard' => 'web',
+            'guard' => 'admin',
         ];
     }
 }

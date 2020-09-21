@@ -97,7 +97,7 @@ return [
         | To allow all image files of all sizes to be uploaded, specify the "null" value for this option.
         |
         */
-        'max_size' => 5,
+        'max_size' => 1,
 
         /*
         |
@@ -195,7 +195,7 @@ return [
         | To allow all video files of all sizes to be uploaded, specify the "null" value for this option.
         |
         */
-        'max_size' => 10,
+        'max_size' => 1,
 
         /*
         |
@@ -222,7 +222,7 @@ return [
         | To allow all audio files of all sizes to be uploaded, specify the "null" value for this option.
         |
         */
-        'max_size' => 5,
+        'max_size' => 1,
 
         /*
         |
@@ -249,7 +249,7 @@ return [
         | To allow all files of all sizes to be uploaded, specify the "null" value for this option.
         |
         */
-        'max_size' => 2,
+        'max_size' => 1,
 
         /*
         |

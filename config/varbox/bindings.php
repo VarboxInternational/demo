@@ -465,7 +465,7 @@ return [
         | - extend the "Varbox\Controllers\AdminsController" class
         |
         */
-        'admins_controller' => \Varbox\Controllers\AdminsController::class,
+        'admins_controller' => \App\Http\Controllers\AdminsController::class,
 
         /*
         |
@@ -476,7 +476,7 @@ return [
         | - extend the "Varbox\Controllers\RolesController" class
         |
         */
-        'roles_controller' => \Varbox\Controllers\RolesController::class,
+        'roles_controller' => \App\Http\Controllers\RolesController::class,
 
         /*
         |
@@ -498,7 +498,7 @@ return [
         | - extend the "Varbox\Controllers\UploadController" class
         |
         */
-        'upload_controller' => \Varbox\Controllers\UploadController::class,
+        'upload_controller' => \App\Http\Controllers\UploadController::class,
 
         /*
         |
@@ -509,7 +509,7 @@ return [
         | - extend the "Varbox\Controllers\UploadsController" class
         |
         */
-        'uploads_controller' => \Varbox\Controllers\UploadsController::class,
+        'uploads_controller' => \App\Http\Controllers\UploadsController::class,
 
         /*
         |
@@ -608,7 +608,7 @@ return [
         | - extend the "Varbox\Controllers\BackupsController" class
         |
         */
-        'backups_controller' => \Varbox\Controllers\BackupsController::class,
+        'backups_controller' => \App\Http\Controllers\BackupsController::class,
 
         /*
         |
@@ -718,7 +718,7 @@ return [
         | - extend the "Varbox\Controllers\TranslationsController" class
         |
         */
-        'translations_controller' => \Varbox\Controllers\TranslationsController::class,
+        'translations_controller' => \App\Http\Controllers\TranslationsController::class,
 
         /*
         |
@@ -729,7 +729,7 @@ return [
         | - extend the "Varbox\Controllers\RedirectsController" class
         |
         */
-        'redirects_controller' => \Varbox\Controllers\RedirectsController::class,
+        'redirects_controller' => \App\Http\Controllers\RedirectsController::class,
 
     ],
 
