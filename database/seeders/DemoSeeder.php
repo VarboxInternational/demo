@@ -23,7 +23,7 @@ use Illuminate\Http\Exceptions\ThrottleRequestsException;
 use Illuminate\Queue\MaxAttemptsExceededException;
 use Illuminate\Routing\Exceptions\InvalidSignatureException;
 use Illuminate\Routing\Exceptions\UrlGenerationException;
-use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
 use InvalidArgumentException;
 use Mockery\Exception\BadMethodCallException;
@@ -48,6 +48,19 @@ class DemoSeeder extends Seeder
      */
     public function run()
     {
+        // delete files
+        Storage::disk('wysiwyg')->delete(
+            array_diff(Storage::disk('wysiwyg')->allFiles(), ['.gitignore'])
+        );
+
+        Storage::disk('backups')->delete(
+            array_diff(Storage::disk('backups')->allFiles(), ['.gitignore'])
+        );
+
+        Storage::disk('uploads')->delete(
+            array_diff(Storage::disk('uploads')->allFiles(), ['.gitignore'])
+        );
+
         // seed users & admins
         User::factory(199)->create()->each(function ($user, $i) {
             if ($i % 2 != 0) {
@@ -56,16 +69,15 @@ class DemoSeeder extends Seeder
         });
 
         // seed roles
-        Role::factory(1)->create(['name' => 'Guest']);
         Role::factory(1)->create(['name' => 'Moderator']);
         Role::factory(1)->create(['name' => 'Editor']);
+        Role::factory(1)->create(['name' => 'Guest', 'guard' => 'web']);
 
         // seed uploads
-        File::deleteDirectory(storage_path('uploads/' . date('Y')));
-        Upload::factory(30)->make();
+        Upload::factory(10)->make();
 
         // seed pages
-        Page::factory(20)->create()->each(function ($page) {
+        Page::factory(10)->create()->each(function ($page) {
             if (!$page->isDrafted()) {
                 Page::factory(5)->create(['parent_id' => $page->id]);
             }
@@ -82,7 +94,7 @@ class DemoSeeder extends Seeder
         });
 
         // seed blocks
-        Block::factory(70)->create();
+        Block::factory(40)->create();
 
         // seed email
         Email::factory(1)->create();
@@ -91,7 +103,7 @@ class DemoSeeder extends Seeder
         app(TranslationServiceContract::class)->importTranslations();
 
         // seed redirects
-        Redirect::factory(100)->create();
+        Redirect::factory(60)->create();
 
         // seed configs
         Config::factory()->count(1)->appName()->create();
