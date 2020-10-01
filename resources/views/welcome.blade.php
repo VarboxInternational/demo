@@ -6,6 +6,7 @@
 
     <title>{{ config('app.name') }}</title>
 
+    <link rel="icon" href="https://varbox.io/images/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
