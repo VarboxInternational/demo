@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
         $this->call(PermissionsSeeder::class);
         $this->call(RolesSeeder::class);
         $this->call(UsersSeeder::class);
+        $this->call(LanguagesSeeder::class);
 
         $this->call(DemoSeeder::class);
 
-        $this->call(LanguagesSeeder::class);
         $this->call(CountriesSeeder::class);
         $this->call(StatesSeeder::class);
         $this->call(CitiesSeeder::class);
