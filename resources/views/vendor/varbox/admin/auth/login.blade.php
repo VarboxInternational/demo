@@ -5,42 +5,42 @@
     <div class="row">
         <div class="col col-login mx-auto">
             {!! form()->open(['url' => request()->url(), 'method' => 'post', 'class' => 'card']) !!}
-                <div class="card-body p-6">
-                    <div class="card-title">Administrator Login</div>
-                    <p class="text-muted">Enter your credentials and start administrating your application.</p>
+            <div class="card-body p-6">
+                <div class="card-title">Administrator Login</div>
+                <p class="text-muted">Enter your credentials and start administrating your application.</p>
 
-                    @if($errors->any())
-                        <div class="col-lg-12 mb-4 pl-0 pr-0">
-                            @foreach($errors->getMessages() as $field => $messages)
-                                @foreach($messages as $message)
-                                    <span class="error text-danger small">{!! $message !!}</span>
-                                    <br />
-                                @endforeach
+                @if($errors->any())
+                    <div class="col-lg-12 mb-4 pl-0 pr-0">
+                        @foreach($errors->getMessages() as $field => $messages)
+                            @foreach($messages as $message)
+                                <span class="error text-danger small">{!! $message !!}</span>
+                                <br />
                             @endforeach
-                        </div>
-                    @endif
+                        @endforeach
+                    </div>
+                @endif
 
-                    @if(session()->has('message'))
-                        <div class="col-lg-12 mb-4 pl-0 pr-0">
-                            <span class="success text-success small">{{ session('message') }}</span>
-                        </div>
-                    @endif
+                @if(session()->has('message'))
+                    <div class="col-lg-12 mb-4 pl-0 pr-0">
+                        <span class="success text-success small">{{ session('message') }}</span>
+                    </div>
+                @endif
 
-                    <div class="form-group">
-                        <label class="form-label">Email</label>
-                        {!! form()->text('email', null, ['class' => 'form-control', 'aria-describedby' => 'emailHelp']) !!}
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">
-                            Password
-                        </label>
-                        {!! form()->password('password', ['class' => 'form-control']) !!}
-                        <a href="{{ route('admin.password.forgot') }}" class="small">I forgot my password</a>
-                    </div>
-                    <div class="form-footer">
-                        <button type="submit" class="btn btn-blue btn-square btn-block">Sign In</button>
-                    </div>
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input class="form-control" aria-describedby="emailHelp" name="email" type="text" value="admin@mail.com">
                 </div>
+                <div class="form-group">
+                    <label class="form-label">
+                        Password
+                    </label>
+                    <input class="form-control" name="password" type="password" value="admin">
+                    <a href="{{ route('admin.password.forgot') }}" class="small">I forgot my password</a>
+                </div>
+                <div class="form-footer">
+                    <button type="submit" class="btn btn-blue btn-square btn-block">Sign In</button>
+                </div>
+            </div>
             {!! form()->close() !!}
 
         </div>
