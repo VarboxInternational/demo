@@ -43,6 +43,28 @@ return [
 
     'disks' => [
 
+        'wysiwyg' => [
+            'driver' => 'local',
+            'root' => storage_path('wysiwyg'),
+            'url' => env('APP_URL').'/wysiwyg',
+            'visibility' => 'public',
+        ],
+
+
+        'backups' => [
+            'driver' => 'local',
+            'root' => storage_path('backups'),
+        ],
+
+
+        'uploads' => [
+            'driver' => 'local',
+            'root' => storage_path('uploads'),
+            'url' => env('APP_URL').'/uploads',
+            'visibility' => 'public',
+        ],
+
+
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
