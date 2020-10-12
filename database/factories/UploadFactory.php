@@ -36,6 +36,10 @@ class UploadFactory extends Factory
     public function configure()
     {
         return $this->afterMaking(function (Upload $upload) {
+            if (count($upload->getAttributes()) > 1 && !$upload->getAttribute('file')) {
+                return;
+            }
+
             $file = app(UploadServiceContract::class, [
                 'file' => $upload->file
             ])->upload();
