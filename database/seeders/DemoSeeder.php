@@ -74,7 +74,7 @@ class DemoSeeder extends Seeder
         Role::factory(1)->create(['name' => 'Guest', 'guard' => 'web']);
 
         // seed uploads
-        Upload::factory(10)->make();
+        Upload::factory(1)->make();
 
         // seed pages
         Page::factory(10)->create()->each(function ($page) {
