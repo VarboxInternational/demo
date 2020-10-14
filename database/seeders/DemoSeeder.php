@@ -62,7 +62,7 @@ class DemoSeeder extends Seeder
         );
 
         // seed users & admins
-        /*User::factory(199)->create()->each(function ($user, $i) {
+        User::factory(199)->create()->each(function ($user, $i) {
             if ($i % 2 != 0) {
                 $user->assignRoles(['Admin', 'Super']);
             }
@@ -71,13 +71,10 @@ class DemoSeeder extends Seeder
         // seed roles
         Role::factory(1)->create(['name' => 'Moderator']);
         Role::factory(1)->create(['name' => 'Editor']);
-        Role::factory(1)->create(['name' => 'Guest', 'guard' => 'web']);*/
+        Role::factory(1)->create(['name' => 'Guest', 'guard' => 'web']);
 
         // seed uploads
-        Upload::truncate();
         Upload::factory(10)->make();
-
-        dd('stop');
 
         // seed pages
         Page::factory(10)->create()->each(function ($page) {
