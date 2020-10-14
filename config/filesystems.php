@@ -50,12 +50,10 @@ return [
             'visibility' => 'public',
         ],
 
-
         'backups' => [
             'driver' => 'local',
             'root' => storage_path('backups'),
         ],
-
 
         'uploads' => [
             'driver' => 'local',
@@ -64,6 +62,10 @@ return [
             'visibility' => 'public',
         ],
 
+        'demo' => [
+            'driver' => 'local',
+            'root' => storage_path('demo'),
+        ],
 
         'local' => [
             'driver' => 'local',

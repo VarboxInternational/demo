@@ -3,7 +3,9 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\File;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
+use Varbox\Contracts\UploadModelContract;
 use Varbox\Contracts\UploadServiceContract;
 use Varbox\Models\Upload;
 
@@ -23,9 +25,7 @@ class UploadFactory extends Factory
      */
     public function definition()
     {
-        return [
-            'file' => $this->faker->imageUrl(800, 800),
-        ];
+        return [];
     }
 
     /**
@@ -36,17 +36,25 @@ class UploadFactory extends Factory
     public function configure()
     {
         return $this->afterMaking(function (Upload $upload) {
-            if (count($upload->getAttributes()) > 1 && !$upload->getAttribute('file')) {
-                return;
-            }
-
-            $file = app(UploadServiceContract::class, [
-                'file' => $upload->file
+            app(UploadServiceContract::class, [
+                'file' => $this->image()
             ])->upload();
-
-            Upload::whereName($file->getName())->first()->update([
-                'original_name' => $this->faker->words(3, true)
-            ]);
         });
+    }
+
+    /**
+     * @return UploadedFile
+     */
+    protected function image()
+    {
+        foreach (Storage::disk('demo')->allFiles('images') as $file) {
+            $image = last(explode('/', $file));
+
+            if (!app(UploadModelContract::class)->whereOriginalName($image)->exists()) {
+                break;
+            }
+        }
+
+        return new UploadedFile(storage_path('demo/images/' . $image), $image);
     }
 }
